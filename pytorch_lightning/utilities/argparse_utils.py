@@ -101,26 +101,10 @@ def get_init_arguments_and_types(cls) -> List[Tuple[str, Tuple, Any]]:
         (argument name, set with argument types, argument default value).
 
     Examples:
+
         >>> from pytorch_lightning import Trainer
         >>> args = get_init_arguments_and_types(Trainer)
-        >>> import pprint
-        >>> pprint.pprint(sorted(args))  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-        [('accelerator',
-          (<class 'str'>,
-           <class 'pytorch_lightning.accelerators.base_accelerator.Accelerator'>,
-           <class 'NoneType'>),
-          None),
-         ('accumulate_grad_batches',
-          (<class 'int'>, typing.Dict[int, int], typing.List[list]),
-          1),
-          ...
-         ('plugins', (<class 'list'>,), None),
-         ...
-         ('progress_bar_refresh_rate', (<class 'int'>,), 1),
-         ('reload_dataloaders_every_epoch', (<class 'bool'>,), False),
-         ...
-         ('track_grad_norm', (<class 'int'>, <class 'float'>, <class 'str'>), -1),
-         ...
+
     """
     trainer_default_params = inspect.signature(cls).parameters
     name_type_default = []
@@ -155,24 +139,6 @@ def add_argparse_args(cls, parent_parser: ArgumentParser) -> ArgumentParser:
         >>> parser = argparse.ArgumentParser()
         >>> parser = Trainer.add_argparse_args(parser)
         >>> args = parser.parse_args([])
-        >>> pprint.pprint(vars(args))  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-        {...
-         'check_val_every_n_epoch': 1,
-         'checkpoint_callback': True,
-         'default_root_dir': None,
-         'deterministic': False,
-         'distributed_backend': None,
-         ...
-         'logger': True,
-         'max_epochs': 1000,
-         'max_steps': None,
-         'min_epochs': 1,
-         'min_steps': None,
-         ...
-         'profiler': None,
-         'progress_bar_refresh_rate': 1,
-         ...}
-
     """
     parser = ArgumentParser(parents=[parent_parser], add_help=False,)
 
