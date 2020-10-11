@@ -110,23 +110,16 @@ def get_init_arguments_and_types(cls) -> List[Tuple[str, Tuple, Any]]:
            <class 'pytorch_lightning.accelerators.base_accelerator.Accelerator'>,
            <class 'NoneType'>),
           None),
+         ('accumulate_grad_batches',
+          (<class 'int'>, typing.Dict[int, int], typing.List[list]),
+          1),
+          ...
+         ('plugins', (<class 'list'>,), None),
          ...
-         ('callbacks',
-          (typing.List[pytorch_lightning.callbacks.base.Callback],
-           <class 'NoneType'>),
-           None),
-         ('check_val_every_n_epoch', (<class 'int'>,), 1),
+         ('progress_bar_refresh_rate', (<class 'int'>,), 1),
+         ('reload_dataloaders_every_epoch', (<class 'bool'>,), False),
          ...
-         ('max_epochs', (<class 'int'>,), 1000),
-         ...
-         ('precision', (<class 'int'>,), 32),
-         ('prepare_data_per_node', (<class 'bool'>,), True),
-         ('process_position', (<class 'int'>,), 0),
-         ('profiler',
-          (<class 'pytorch_lightning.profiler.profilers.BaseProfiler'>,
-           <class 'bool'>,
-           <class 'NoneType'>),
-          None),
+         ('track_grad_norm', (<class 'int'>, <class 'float'>, <class 'str'>), -1),
          ...
     """
     trainer_default_params = inspect.signature(cls).parameters
