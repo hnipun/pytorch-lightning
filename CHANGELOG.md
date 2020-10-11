@@ -64,6 +64,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 - Removed deprecated callbacks ([#3979](https://github.com/PyTorchLightning/pytorch-lightning/pull/3979))
 
+- Removed `trainer` argument in `LightningModule.backward` [#4056](https://github.com/PyTorchLightning/pytorch-lightning/pull/4056))
+
 ### Fixed
 
 - Fixed `current_epoch` property update to reflect true epoch number inside `LightningDataModule`, when `reload_dataloaders_every_epoch=True`. ([#3974](https://github.com/PyTorchLightning/pytorch-lightning/issues/3974))
